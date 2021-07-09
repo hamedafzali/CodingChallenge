@@ -1,0 +1,22 @@
+nav {
+  background-color: $orgColor;
+  height: 3.55rem;
+}
+
+.navLogin {
+  text-decoration: none;
+  color: $fontLight;
+  margin: 0.3rem;
+  margin-right: 1rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+.navLogin:hover {
+  color: $fontLight;
+  border-bottom: 2px solid $fontLight;
+  margin-bottom: 0.2rem;
+}
+.logo {
+  width: 9.5rem;
+  margin-left: 1rem;
+}
