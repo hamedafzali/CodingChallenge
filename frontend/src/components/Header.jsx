@@ -5,7 +5,7 @@ const Header = () => {
     <nav className="navbar">
       <img src={logo} className="logo" alt="" />
 
-      <a className="navLogin" href="#">
+      <a className="navLogin" href="/">
         Login
       </a>
     </nav>
