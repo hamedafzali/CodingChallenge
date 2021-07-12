@@ -20,13 +20,10 @@ function CollapsibleTable({ data }) {
         </thead>
         <tbody>
           {data.map((row, index) => {
+            index++;
             return (
               <>
-                <tr
-                  //onClick={() => ClickHandler(row, index)}
-
-                  key={index}
-                >
+                <tr key={index}>
                   <th scope="row">{index}</th>
                   <td>{row.name}</td>
                   <td>{row.type}</td>

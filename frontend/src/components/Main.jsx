@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import moment from "moment";
 import {
   membersAbsencesAdded,
   membersAbsencesSummaryAdded,
 } from "../store/employee";
-
 import * as PersonsService from "../services/persons";
 import CollapsibleTable from "./common/collapsibleTable";
 import Loading from "./common/loading";
-
+import Table from "./common/Table";
 const Main = () => {
   const state = useSelector((state) => state.employeesReducer);
   const dispatch = useDispatch();
@@ -16,7 +16,55 @@ const Main = () => {
   useEffect(() => {
     getData();
   }, []);
+  const columnsSummary = [
+    {
+      type: "rowNumber",
+      label: "#",
+    },
+    { path: "name", label: "Name", sumText: "Total" },
+    { path: "requested", label: "Requested", sum: true },
+    { path: "confirmed", label: "Confirmed", sum: true },
+    { path: "rejected", label: "Rejected", sum: true },
+  ];
+  const columns = [
+    {
+      type: "rowNumber",
+      label: "#",
+    },
+    { path: "name", label: "Name" },
+    { path: "type", label: "Type" },
+    {
+      content: (item) => (
+        <div>{moment(item.createdAt).format("DD-MM-YYYY")}</div>
+      ),
+      label: "Creation Date",
+    },
+    {
+      content: (item) => (
+        <div
+          className={
+            item.confirmedAt
+              ? "text-nowrap text-success"
+              : item.rejectedAt
+              ? "text-nowrap text-danger"
+              : "text-nowrap"
+          }
+        >
+          {item.confirmedAt
+            ? `Confirmed on ${moment(item.confirmedAt).format("DD-MM-YYYY")}`
+            : item.rejectedAt
+            ? `Rejected on ${moment(item.rejectedAt).format("DD-MM-YYYY")}`
+            : "in process"}
+        </div>
+      ),
+      label: "Status",
+    },
 
+    {
+      path: "userId",
+      content: (item) => <div>&#x27A4;</div>,
+    },
+  ];
   const getData = async () => {
     const { data: employeesData } = await PersonsService.getMembersAbsences();
     dispatch(membersAbsencesAdded(employeesData));
@@ -33,39 +81,17 @@ const Main = () => {
   else {
     setTimeout(() => {
       timeOut = setIsLoading(false);
-    }, 5000);
+    }, 3000);
     if (isLoading) return <Loading />;
     clearTimeout(timeOut);
   }
   return (
     <div className="container p-3 border rounded">
       <div className="row">
-        <div className="col-md-12 col-lg-4">
+        <div className="col-md-12 col-lg-5 col-xl-4">
           <div className="title mb-1">Summary of the absences</div>
-          <table className="table table-sm table-hover text-center">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Name</th>
-                <th scope="col">Confirmed</th>
-                <th scope="col">Rejected</th>
-                {/* <th scope="col">photo</th> */}
-              </tr>
-            </thead>
-            <tbody>
-              {state.membersAbsencesSummary.map((row, index) => (
-                <tr key={index}>
-                  <th scope="row">{++index}</th>
-                  <td>{row.name}</td>
-                  <td>{row.confirmed}</td>
-                  <td>{row.rejected}</td>
-                  {/* <td>
-                    <img src={`${row.image}/${row.userId}`} width="50" />
-                  </td> */}
-                </tr>
-              ))}
-            </tbody>
-          </table>
+          <Table columns={columnsSummary} data={state.membersAbsencesSummary} />
+
           <div className="card" style={{ width: "100%" }}>
             {/* <image
               className="card-img-top"
@@ -81,9 +107,10 @@ const Main = () => {
             </div>
           </div>
         </div>
-        <div className="col-md-12 col-lg-8">
+        <div className="col-md-12  col-lg-7 col-xl-8">
           <div className="title mb-1">Detail of the absences</div>
-          <CollapsibleTable data={state.membersAbsences} />
+          {/* <CollapsibleTable data={state.membersAbsences} /> */}
+          <Table columns={columns} data={state.membersAbsences} />
         </div>
       </div>
     </div>
