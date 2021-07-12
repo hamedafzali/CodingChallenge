@@ -1,3 +1,13 @@
-h1 {
-  color: $fontDark;
+.container {
+  margin-top: 5rem;
+}
+.title {
+  text-align: center;
+  font-size: larger;
+  background-color: $secondary;
+  border-radius: 0.5rem;
+  padding: 0.7rem;
+  color: $fontLight;
+  text-shadow: 0px 0px 10px $fontDark;
+  border: 1px solid $primary;
 }

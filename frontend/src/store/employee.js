@@ -1,17 +1,27 @@
 //Action Types
-export const EMPLOYEE_ALL_ADDED = "employeeAllAdded";
+const MEMBER_ABSENCE_ADDED = "membersAbsencesAdded";
+const MEMBER_ABSENCE_SUMMARY_ADDED = "membersAbsencesSummaryAdded";
 
 //actions
-export const employeeAllAdded = (data) => ({
-  type: EMPLOYEE_ALL_ADDED,
-  payload: { ...data },
+export const membersAbsencesAdded = (data) => ({
+  type: MEMBER_ABSENCE_ADDED,
+  payload: data,
+});
+export const membersAbsencesSummaryAdded = (data) => ({
+  type: MEMBER_ABSENCE_SUMMARY_ADDED,
+  payload: data,
 });
 
 //reducers
-export default function reducer(state = [], action) {
+export default function employeesReducer(
+  state = { membersAbsences: [], membersAbsencesSummary: [] },
+  action
+) {
   switch (action.type) {
-    case EMPLOYEE_ALL_ADDED:
-      return action.payload;
+    case MEMBER_ABSENCE_ADDED:
+      return { ...state, membersAbsences: action.payload };
+    case MEMBER_ABSENCE_SUMMARY_ADDED:
+      return { ...state, membersAbsencesSummary: action.payload };
     default:
       return state;
   }
