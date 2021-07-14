@@ -1,9 +1,14 @@
 import React, { Component } from "react";
-
+import TableHeaderItem from "./TableHeaderItem";
+import _ from "lodash";
+import moment from "moment";
 class TableHeader extends Component {
+  componentDidMount() {
+    //console.log(this.props.data, Object.keys(_.groupBy(this.props.data, "name")));
+  }
   raiseSort = (path) => {
     const sortColumn = { ...this.props.sortColumn };
-    //console.log(sortColumn);
+
     if (sortColumn.path === path)
       sortColumn.order = sortColumn.order === "asc" ? "desc" : "asc";
     else {
@@ -15,7 +20,29 @@ class TableHeader extends Component {
 
   renderSortIcon = (column) => {
     const { sortColumn } = this.props;
-    if (column.headerContent) return column.headerContent;
+    if (column.headerContent) return column.headerContent();
+    if (column.filtered)
+      return (
+        <TableHeaderItem
+          path={column.path}
+          data={
+            column.dateFormated
+              ? Object.keys(
+                  _.groupBy(
+                    this.props.data.map((i) => ({
+                      ...i,
+                      [column.path]: moment([column.path]).format(
+                        column.dateFormated
+                      ),
+                    })),
+                    column.path
+                  )
+                )
+              : Object.keys(_.groupBy(this.props.data, column.path))
+          }
+          handleClick={this.props.handleClick}
+        />
+      );
     if (column.path !== sortColumn.path) return null;
     if (sortColumn.order === "asc") return <i className="fa fa-sort-asc" />;
     return <i className="fa fa-sort-desc" />;
@@ -31,7 +58,9 @@ class TableHeader extends Component {
                 key={column.path || column.key}
                 onClick={() => this.raiseSort(column.path)}
               >
-                {column.label} {this.renderSortIcon(column)}
+                <div>
+                  {column.label} {this.renderSortIcon(column)}
+                </div>
               </th>
             ) : (
               <th className="clickable" key={column.path || column.key}>

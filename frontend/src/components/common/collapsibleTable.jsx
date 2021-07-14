@@ -1,6 +1,6 @@
 import React from "react";
-
 import moment from "moment";
+
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/js/src/collapse.js";
 function CollapsibleTable({ data }) {
@@ -87,7 +87,7 @@ function CollapsibleTable({ data }) {
                           <tr>
                             <th scope="row">2</th>
                             <td colspan="4">
-                              {`Confirmed `}{" "}
+                              {`Confirmed `}
                               {row.admitterId
                                 ? `by admitter ID ${row.admitterId}`
                                 : ""}

@@ -1,0 +1,23 @@
+.page-link {
+  position: relative;
+  display: block;
+  padding: 0.5rem 0.75rem;
+  margin-left: -1px;
+  line-height: 1.25;
+  color: $fontDark !important;
+  background-color: $primary !important;
+  border: 1px solid #a3a3a3 !important;
+}
+.page-link:hover {
+  z-index: 2;
+  color: $fontDark !important;
+  text-decoration: none;
+  background-color: #a4a4a4 !important;
+  border-color: #dee2e6;
+}
+.page-item.active .page-link {
+  z-index: 3;
+  color: $white;
+  background-color: #808080 !important;
+  border-color: #353535;
+}

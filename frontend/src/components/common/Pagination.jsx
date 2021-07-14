@@ -8,8 +8,8 @@ const Pagination = ({ itemsCount, pageSize, currentPage, onPageChange }) => {
   const pages = _.range(1, pagesCount + 1);
 
   return (
-    <nav className="bg-light">
-      <ul className="pagination justify-content-center">
+    <nav className="bg-white p-0">
+      <ul className="pagination justify-content-center m-0">
         <li
           className={
             currentPage === 1
@@ -18,7 +18,7 @@ const Pagination = ({ itemsCount, pageSize, currentPage, onPageChange }) => {
           }
         >
           <div
-            className="page-link"
+            className="page-link "
             href="#"
             onClick={() => onPageChange(currentPage - 1)}
             tabindex="-1"
@@ -29,9 +29,9 @@ const Pagination = ({ itemsCount, pageSize, currentPage, onPageChange }) => {
         {pages.map((page) => (
           <li
             key={page}
-            className={page === currentPage ? "page-item active" : "page-item"}
+            className={page === currentPage ? "page-item active" : "page-item "}
           >
-            <div className="page-link" onClick={() => onPageChange(page)}>
+            <div className="page-link " onClick={() => onPageChange(page)}>
               {page}
             </div>
           </li>

@@ -1,6 +1,7 @@
 import { createStore, combineReducers } from "redux";
 import employeesReducer from "./employee";
-const reducers = { employeesReducer };
+import loadingsReducer from "./loading";
+const reducers = { employeesReducer, loadingsReducer };
 
 const rooReducer = combineReducers(reducers);
 

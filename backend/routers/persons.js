@@ -15,13 +15,11 @@ router.get("/absences", (req, res) => {
 
 router.get("/members-absences", (req, res) => {
   Promise.all([members(), absences()]).then((values) => {
-    //console.log(innerJoin(values[0], values[1]));
     res.send(innerJoin(values[0], values[1], "userId", "userId"));
   });
 });
 router.get("/members-absences-sum", (req, res) => {
   Promise.all([members(), absences()]).then((values) => {
-    //console.log(innerJoin(values[0], values[1]));
     res.send(innerJoinGrouped(values[0], values[1], "userId", "userId"));
   });
 });

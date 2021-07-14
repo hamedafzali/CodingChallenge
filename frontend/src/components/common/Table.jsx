@@ -12,6 +12,18 @@ const Table = ({ columns, data }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize, setpageSize] = useState(10);
   const [keyword, setKeyword] = useState("");
+  let [filteredData, setFilteredData] = useState(data);
+  const filterData = (val, path) => {
+    setCurrentPage(1);
+    return path === "notFiltered" || val === "All data"
+      ? data
+      : data.filter((i) => i[path] === val);
+  };
+
+  const clickHandler = (i, path) => {
+    console.log(i, path);
+    setFilteredData(filterData(i, path));
+  };
 
   const pageSizeData = [
     { id: 5, name: "5" },
@@ -30,6 +42,7 @@ const Table = ({ columns, data }) => {
   });
 
   const doSearch = (data) => {
+    console.log("doSearch", data);
     return _.filter(data, function (item) {
       //_.indexOf(data).conca
       try {
@@ -52,7 +65,7 @@ const Table = ({ columns, data }) => {
     setCurrentPage(page);
   };
   const getPagedData = () => {
-    let searchedData = doSearch(data);
+    let searchedData = doSearch(filteredData);
     const sorted = _.orderBy(
       searchedData,
       [sortColumn.path],
@@ -66,7 +79,8 @@ const Table = ({ columns, data }) => {
     setSortColumn(sortColumn);
   };
   const { totalCount, PData } = getPagedData();
-
+  //console.log("table data", data);
+  if (!data.length) return <div>No data to display</div>;
   return (
     <div className="text-center">
       <table
@@ -77,11 +91,13 @@ const Table = ({ columns, data }) => {
           columns={columns}
           sortColumn={sortColumn}
           onSort={handleSort}
+          data={data}
+          handleClick={clickHandler}
         />
         <TableBody columns={columns} data={PData} currentPage={currentPage} />
         <TableFooter columns={columns} data={PData} />
       </table>
-
+      {/* <div className="overlay "></div> */}
       <div className="text-right">
         <Pagination
           itemsCount={totalCount}

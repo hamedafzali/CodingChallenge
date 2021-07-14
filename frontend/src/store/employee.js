@@ -1,6 +1,8 @@
 //Action Types
 const MEMBER_ABSENCE_ADDED = "membersAbsencesAdded";
 const MEMBER_ABSENCE_SUMMARY_ADDED = "membersAbsencesSummaryAdded";
+const EMPLOYEE_ADD_SELECTED = "employeeAddSelected";
+const EMPLOYEE_REMOVE_SELECTED = "employeeRemoveSelected";
 
 //actions
 export const membersAbsencesAdded = (data) => ({
@@ -11,10 +13,20 @@ export const membersAbsencesSummaryAdded = (data) => ({
   type: MEMBER_ABSENCE_SUMMARY_ADDED,
   payload: data,
 });
-
+export const employeeAddSelected = (data) => ({
+  type: EMPLOYEE_ADD_SELECTED,
+  payload: data,
+});
+export const employeeRemoveSelected = () => ({
+  type: EMPLOYEE_REMOVE_SELECTED,
+});
 //reducers
 export default function employeesReducer(
-  state = { membersAbsences: [], membersAbsencesSummary: [] },
+  state = {
+    membersAbsences: [],
+    membersAbsencesSummary: [],
+    selectedEmployee: [],
+  },
   action
 ) {
   switch (action.type) {
@@ -22,6 +34,10 @@ export default function employeesReducer(
       return { ...state, membersAbsences: action.payload };
     case MEMBER_ABSENCE_SUMMARY_ADDED:
       return { ...state, membersAbsencesSummary: action.payload };
+    case EMPLOYEE_ADD_SELECTED:
+      return { ...state, selectedEmployee: action.payload };
+    case EMPLOYEE_REMOVE_SELECTED:
+      return { ...state, selectedEmployee: [] };
     default:
       return state;
   }

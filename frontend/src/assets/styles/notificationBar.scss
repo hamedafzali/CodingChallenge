@@ -1,0 +1,15 @@
+.notification-top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 40px;
+  line-height: 40px;
+  width: 100%;
+  background: black;
+  text-align: center;
+  color: #ffffff;
+  font-family: sans-serif;
+  font-weight: lighter;
+  font-size: 14px;
+  z-index: 9999999;
+}
