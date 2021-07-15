@@ -20,11 +20,11 @@ backend:<pre> node index.js</pre>
 The tests in frontend and backend have been implemented by Jest.
 
 This project can be accessed on port 3000 for frontend and 8080 for backend.
-The API contains listed services:
+The API contains the following services:
 <pre>
      http://localhost:8080/api/persons/members
      http://localhost:8080/api/persons/absences
      http://localhost:8080/api/persons/members-absences
      http://localhost:8080/api/persons/members-absences-sum
 </pre>
-Minimum usage of third-party libraries has made the component flexible in of to be modified and customized based on the new requests.
+Minimum usage of third-party libraries has made the components flexible enough to be modified and customized based on the new requests.
