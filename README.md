@@ -11,7 +11,8 @@ Since the project needs node_module libraries, you must run <pre>npm install</pr
 Now, the project is ready to run. To run this in docker, it is necessary to have docker-compose, so after installing docker and docker-compose you could run the following command in the folder which contains frontend and backend. 
 <pre>docker-compose up -d --build</pre>
 
-there is another alternative wecan apply the folowing commands 
+there is another alternative wecan apply the folowing commands
+
 frontend:<pre>npm start</pre>  
 backend:<pre> node index.js</pre>  
 
