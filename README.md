@@ -1,5 +1,5 @@
 # Coding Challenge - Frontend (React)
-In this project, you could find backend and frontend projects In Node.JS and ReactJS. to download and run this project, you may follow instruction below:
+In this project, you could find backend and frontend projects In Node.JS and ReactJS. To download and run this project, you may follow the instruction below:
 
 ## Instruction
 First, clone this project by git command:
@@ -17,7 +17,7 @@ there is another alternative wecan apply the folowing commands
 frontend:<pre>npm start</pre>  
 backend:<pre> node index.js</pre>  
 
-The tests in frontend and backend have been implemented by Jest.
+The tests in frontend and backend have been already implemented by Jest.
 
 This project can be accessed on port 3000 for frontend and 8080 for backend.
 The API contains the following services:
