@@ -6,7 +6,8 @@ First, clone this project by git command:
 <pre>
      git clone https://github.com/hamedafzali/CodingChallenge
 </pre>
-Since the project needs node_module libraries, you must run <pre>npm install</pre> or <pre>yarn</pre> in backend and frontend folder
+Since the project needs node_module libraries, you must run the folowing commands in backend and frontend folder
+<pre>npm install</pre> or <pre>yarn</pre> 
 
 Now, the project is ready to run. To run this in docker, it is necessary to have docker-compose, so after installing docker and docker-compose you could run the following command in the folder which contains frontend and backend. 
 <pre>docker-compose up -d --build</pre>
