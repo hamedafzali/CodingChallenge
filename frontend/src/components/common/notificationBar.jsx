@@ -2,7 +2,7 @@ import React from "react";
 const NotificationBar = () => {
   return (
     <>
-      <div class="notification-top-bar">
+      <div className="notification-top-bar">
         <h6>
           Could not receive data. your connection may not be established or the
           server temporary is unreachable.

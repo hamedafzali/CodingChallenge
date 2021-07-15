@@ -6,6 +6,7 @@ import CollapsibleIcon from "./common/CollapsibleIcon";
 const AbsencesTable = ({ data }) => {
   const columns = [
     {
+      path: "userId",
       type: "rowNumber",
       label: "#",
     },

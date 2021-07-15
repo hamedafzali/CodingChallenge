@@ -1,8 +1,8 @@
 //Action Types
-const MEMBER_ABSENCE_ADDED = "membersAbsencesAdded";
-const MEMBER_ABSENCE_SUMMARY_ADDED = "membersAbsencesSummaryAdded";
-const EMPLOYEE_ADD_SELECTED = "employeeAddSelected";
-const EMPLOYEE_REMOVE_SELECTED = "employeeRemoveSelected";
+export const MEMBER_ABSENCE_ADDED = "membersAbsencesAdded";
+export const MEMBER_ABSENCE_SUMMARY_ADDED = "membersAbsencesSummaryAdded";
+export const EMPLOYEE_ADD_SELECTED = "employeeAddSelected";
+export const EMPLOYEE_REMOVE_SELECTED = "employeeRemoveSelected";
 
 //actions
 export const membersAbsencesAdded = (data) => ({

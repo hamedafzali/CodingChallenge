@@ -19,12 +19,9 @@ class TableBody extends Component {
       <tbody>
         {this.props.data.map((item, index) => (
           <>
-            <tr key={item.Id} className={item.edited ? "bg-warning" : null}>
+            <tr key={"tr" + index + 1 + (this.props.currentPage - 1) * 10}>
               {columns.map((column) => (
-                <td
-                  key={this.createKey(item, column)}
-                  className={column.color ? column.color : ""}
-                >
+                <td key={this.createKey(item, column)}>
                   {column.type === "rowNumber"
                     ? index + 1 + (this.props.currentPage - 1) * 10
                     : this.renderCell(
@@ -38,6 +35,9 @@ class TableBody extends Component {
             {columns.map((column) =>
               column.collapsibleContet ? (
                 <tr
+                  key={
+                    "collapse" + index + 1 + (this.props.currentPage - 1) * 10
+                  }
                   id={`collapse${
                     index + 1 + (this.props.currentPage - 1) * 10
                   }`}

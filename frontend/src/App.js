@@ -11,7 +11,7 @@ const App = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(errorChanged(false));
-  }, []);
+  }, [dispatch]);
   const isLoading = useSelector((state) => state.loadingsReducer);
   return (
     <React.Fragment>

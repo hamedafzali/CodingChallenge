@@ -21,7 +21,7 @@ const Pagination = ({ itemsCount, pageSize, currentPage, onPageChange }) => {
             className="page-link "
             href="#"
             onClick={() => onPageChange(currentPage - 1)}
-            tabindex="-1"
+            tabIndex="-1"
           >
             Previous
           </div>
@@ -47,7 +47,7 @@ const Pagination = ({ itemsCount, pageSize, currentPage, onPageChange }) => {
             className="page-link"
             href="#"
             onClick={() => onPageChange(currentPage + 1)}
-            tabindex="-1"
+            tabIndex="-1"
           >
             Next
           </div>

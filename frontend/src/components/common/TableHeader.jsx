@@ -55,7 +55,7 @@ class TableHeader extends Component {
           {this.props.columns.map((column) =>
             !column.headerContent ? (
               <th
-                key={column.path || column.key}
+                key={column.path || column.key || column.label}
                 onClick={() => this.raiseSort(column.path)}
               >
                 <div>
@@ -63,7 +63,10 @@ class TableHeader extends Component {
                 </div>
               </th>
             ) : (
-              <th className="clickable" key={column.path || column.key}>
+              <th
+                className="clickable"
+                key={column.path || column.key || column.label}
+              >
                 {column.label} {this.renderSortIcon(column)}
               </th>
             )

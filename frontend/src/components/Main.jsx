@@ -26,16 +26,16 @@ const Main = (props) => {
   useEffect(() => {
     setLoadingStatus(true);
     getData()
-      .then((data) => {
+      .then(() => {
         dispatch(errorChanged(false));
         setLoadingStatus(false);
       })
       .catch((err) => {
-        //console.log("error", err);
+        console.log("error", err);
         dispatch(errorChanged(true));
         setLoadingStatus(false);
       });
-  }, []);
+  }, [dispatch]);
 
   const getData = async () => {
     const { data: employeesData } = await EmployeesService.getMembersAbsences();

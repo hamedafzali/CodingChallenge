@@ -24,6 +24,7 @@ const TableHeaderItem = ({ path, data, handleClick }) => {
         </div>
         {data.map((i) => (
           <div
+            key={i + path}
             className="dropdown-item "
             href="#"
             onClick={() => handleClick(i, path)}

@@ -9,10 +9,12 @@ const TableFooter = ({ columns, data }) => {
   };
 
   return (
-    <tfoot class="bg-light text-uppercase font-weight-bold">
+    <tfoot className="bg-light text-uppercase font-weight-bold">
       <tr>
         {columns.map((column) => (
-          <td>{column.sum ? sum(column.path) : column.sumText}</td>
+          <td key={column.path || column.sumText}>
+            {column.sum ? sum(column.path) : column.sumText}
+          </td>
         ))}
       </tr>
     </tfoot>

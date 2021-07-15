@@ -4,7 +4,7 @@ const AnsenceCard = ({ row }) => {
   return (
     <div className="row">
       <div className="col-xs-8 col-sm-8 col-md-9 col-lg-8 col-xl-9  text-center p-2">
-        <table class="table table-sm shadow rounded">
+        <table className="table table-sm shadow rounded">
           <thead>
             <tr className="bg-dark text-light ">
               <th
@@ -16,13 +16,13 @@ const AnsenceCard = ({ row }) => {
           <tbody>
             <tr>
               <th scope="row">1</th>
-              <td colspan="4">{`Registered by ${row.name} on ${moment(
+              <td colSpan="4">{`Registered by ${row.name} on ${moment(
                 row.createdAt
               ).format("DD-MM-YYYY HH:MM")}`}</td>
             </tr>
             <tr>
               <th scope="row">2</th>
-              <td colspan="4">
+              <td colSpan="4">
                 {row.confirmedAt
                   ? `Confirmed on ${moment(row.confirmedAt).format(
                       "DD-MM-YYYY"
@@ -41,7 +41,7 @@ const AnsenceCard = ({ row }) => {
             {row.memberNote ? (
               <tr>
                 <th scope="row">3</th>
-                <td colspan="4">{`Memeber Note:${row.memberNote}`}</td>
+                <td colSpan="4">{`Memeber Note:${row.memberNote}`}</td>
               </tr>
             ) : (
               ""
@@ -49,7 +49,7 @@ const AnsenceCard = ({ row }) => {
             {row.admitterNote ? (
               <tr>
                 <th scope="row">3</th>
-                <td colspan="4">{`Admitter Note:${row.admitterNote}`}</td>
+                <td colSpan="4">{`Admitter Note:${row.admitterNote}`}</td>
               </tr>
             ) : (
               ""
@@ -61,7 +61,7 @@ const AnsenceCard = ({ row }) => {
         <img
           src={`${row.image}/${row.userId}`}
           width="80%"
-          class="rounded shadow border border-dark"
+          className="rounded shadow border border-dark"
           alt=""
         />
       </div>
