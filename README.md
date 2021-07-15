@@ -17,7 +17,7 @@ there is another alternative wecan apply the folowing commands
 frontend:<pre>npm start</pre>  
 backend:<pre> node index.js</pre>  
 
-The tests in frontend and backend have been already implemented by Jest.
+I have implemented the tests in frontend and backend through Jest.
 
 This project can be accessed on port 3000 for frontend and 8080 for backend.
 The API contains the following services:
