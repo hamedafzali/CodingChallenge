@@ -1,6 +1,5 @@
-# 🚀  coding challenge - Frontend (React)
+# coding challenge - Frontend (React)
 In this project, you could find backend and frontend projects In Node.JS and ReactJS. to download and run this project, you may follow instruction below:
-This project can be run by node, npm, or docker-compose.
 
 ## Instruction
 First, clone this project by git command:
@@ -12,7 +11,9 @@ Since the project needs node_module libraries, you must run <pre>npm install</pr
 Now, the project is ready to run. To run this in docker, it is necessary to have docker-compose, so after installing docker and docker-compose you could run the following command in the folder which contains frontend and backend. 
 <pre>docker-compose up -d --build</pre>
 
-Another way to run is running <pre>npm start</pre> in the frontend folder and <pre> node index.js</pre> in the backend folder 
+there is another alternative wecan apply the folowing commands 
+frontend:<pre>npm start</pre>  
+backend:<pre> node index.js</pre>  
 
 Tests are provided in frontend and backend by jest although implemented tests are simple and need to be complete in a real project
 
