@@ -17,10 +17,9 @@ there is another alternative wecan apply the folowing commands
 frontend:<pre>npm start</pre>  
 backend:<pre> node index.js</pre>  
 
-Tests are provided in frontend and backend by jest although implemented tests are simple and need to be complete in a real project
+The tests in frontend and backend have been implemented by Jest.
 
-## Technical Instructions
-This project runs in port 3000 for the frontend and 8080 for the backend
+This project can be accessed on port 3000 for frontend and 8080 for backend.
 The API contains listed services:
 <pre>
      http://localhost:8080/api/persons/members
@@ -28,4 +27,4 @@ The API contains listed services:
      http://localhost:8080/api/persons/members-absences
      http://localhost:8080/api/persons/members-absences-sum
 </pre>
-In this project have used minimum usage of third-party libraries so all components were created by myself, therefore, every change in every component is possible.
+Minimum usage of third-party libraries has made the component flexible in of to be modified and customized based on the new requests.
