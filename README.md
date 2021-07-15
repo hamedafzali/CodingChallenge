@@ -1,4 +1,4 @@
-# coding challenge - Frontend (React)
+# Coding Challenge - Frontend (React)
 In this project, you could find backend and frontend projects In Node.JS and ReactJS. to download and run this project, you may follow instruction below:
 
 ## Instruction
