@@ -2,7 +2,7 @@
 In this project, you could find backend and frontend projects In Node.JS and ReactJS. to download and run this project, you may follow instruction below:
 This project can be run by node, npm, or docker-compose.
 
-## Instructions
+## Instruction
 First, clone this project by git command:
 <pre>
      git clone https://github.com/hamedafzali/CodingChallenge
