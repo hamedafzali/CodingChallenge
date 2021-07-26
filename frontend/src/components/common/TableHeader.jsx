@@ -3,9 +3,6 @@ import TableHeaderItem from "./TableHeaderItem";
 import _ from "lodash";
 import moment from "moment";
 class TableHeader extends Component {
-  componentDidMount() {
-    //console.log(this.props.data, Object.keys(_.groupBy(this.props.data, "name")));
-  }
   raiseSort = (path) => {
     const sortColumn = { ...this.props.sortColumn };
 
